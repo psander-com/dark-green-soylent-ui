@@ -1,0 +1,43 @@
+
+// Git
+// -------------------
+
+// Used to color git status
+
+.status          { color: @text-color; }
+.status-added    { color: @text-color-success; } // green
+.status-ignored  { color: @text-color-subtle; }  // faded
+.status-modified { // orange
+  color: @text-color-warning;
+};
+.status-removed  { color: @text-color-error; }   // red
+.status-renamed  { color: @text-color-info; }    // blue
+
+// Git in tree view needs special handling
+@gitChangeSymbol: '\2622';
+atom-pane {
+  .list-tree {
+    .list-nested-item {
+      &.status-modified {
+        .header {
+          span {
+            &::after {
+              content: @gitChangeSymbol;
+              position: relative;
+              margin-left: 5px;
+            }
+          }
+        }
+      }
+    }
+    .list-item {
+      &.status-modified {
+        &::after {
+          content: @gitChangeSymbol;
+          position: relative;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}

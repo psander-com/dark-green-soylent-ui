@@ -1,0 +1,31 @@
+
+// Tooltips
+// -------------------
+
+// Overrides: Bootstrap's `.tooltip`.
+
+
+.tooltip {
+  .tooltip-inner {
+    line-height: 1;
+    padding: .75em;
+    white-space: nowrap;
+    max-width: none;
+    background: @base-border-color;
+  }
+  &.top,
+  &.left,
+  &.bottom
+  &.right {
+    .tooltip-arrow {
+      border-top-color: @base-border-color;
+    }
+  }
+  .keystroke {
+    padding: .15em .4em;
+    margin: 0 -.3em 0 .25em;
+    border-radius: max(2px, @component-border-radius / 2);
+    color: @text-color-selected;
+    background: @base-border-color;
+  }
+}
