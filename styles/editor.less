@@ -24,7 +24,20 @@ atom-text-editor[mini] {
 }
 
 atom-text-editor {
-  .line-number {
-    padding-left: 0;
+  .line-numbers {
+    border-left: 1px solid @base-border-color;
+    &.cursor-line {
+      background-color: @background-color-selected;
+    }
+  }
+  .gutter {
+    .line-number {
+      &.cursor-line{
+        background-color: @background-color-selected;
+      }
+      &.cursor-line-no-selection {
+        background-color: rgba(153, 255, 153, 0.04);
+      }
+    }
   }
 }
