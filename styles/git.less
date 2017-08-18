@@ -8,7 +8,7 @@
 .status-added    { color: @text-color-success; } // green
 .status-ignored  { color: @text-color-subtle; }  // faded
 .status-modified { // orange
-  color: @text-color-warning;
+  color: @text-color;
 };
 .status-removed  { color: @text-color-error; }   // red
 .status-renamed  { color: @text-color-info; }    // blue
@@ -19,12 +19,14 @@ atom-pane {
   .list-tree {
     .list-nested-item {
       &.status-modified {
-        .header {
-          span {
+        >.header {
+          color: @text-color-warning;
+          >span {
             &::after {
               content: @gitChangeSymbol;
               position: relative;
               margin-left: 5px;
+              font-size: 16px;
             }
           }
         }
@@ -32,12 +34,22 @@ atom-pane {
     }
     .list-item {
       &.status-modified {
+        color: @text-color-warning;
         &::after {
           content: @gitChangeSymbol;
           position: relative;
           margin-left: 5px;
+          font-size: 16px;
         }
       }
     }
   }
+
+
+  // .entry.list-nested-item.status-modified.expanded > ol > li.file.entry.list-item.status-modified,
+  // .list-nested-item.status-modified.expanded > ol > li.directory.entry.list-nested-item.status-ignored.selected.collapsed {
+  //   content: @gitChangeSymbol;
+  //   position: relative;
+  //   margin-left: 5px;
+  // }
 }
